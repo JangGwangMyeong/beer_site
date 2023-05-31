@@ -542,44 +542,128 @@
         <div class="" style="height: 10px; border-bottom: 2px solid yellow;  border-top: 2px solid yellow;"></div>
     </div>
         
-        <div class="beer-list">
-        <div class="thumb">        
-            <a href="">
-                <img src="img/20heineken2.png" style="width: 150px; height: 210px; margin-top: 0 auto;" alt="">
-            </a>    
-        </div>    
-        <div class="txt-area">        
-            <div class="cnt-header">            
-                <p class="winery" style=""><a href="">하이네켄<img src="img/ic_check1.png" style="width: 25px; height: 25px; vertical-align: top;"></a></p>
-                <h3>                
-                    <a href="" class="btnView">하이네켄 , 오리지날                 
-                    <p class="wine-name-en">Heineken, Original</p>                
-                </a>            
-            </h3>        
-            </div>        
+    <div class="beer-list">
+        
 
-            <span class="country">네덜란드(Nederlanden)</span>            
-            <span class="nation">, 라거(Lager)</span>       
-               
-             <div class="rate">
-                <em style="width: 70%;" ></em>    <div class="rate-text">(3.5)</div>  
-            </div> 
+    </div>
+     <script>
+        // 페이지 로드가 완료되면 함수를 실행합니다
+        window.onload = function() {
+            // fetch 함수를 이용해 API에서 맥주 데이터를 가져옵니다.
+            // 실제 API 엔드포인트 URL로 교체해야 합니다
+            fetch('https://port-0-beer-match-lhe2blhxowpm3.sel4.cloudtype.app/beers') 
+                .then(response => response.json()) // API 응답을 JSON으로 변환합니다
+                .then(data => { // JSON 데이터를 처리합니다
+                    // 각 맥주 데이터에 대해 HTML 요소를 동적으로 생성하고 페이지에 삽입합니다
+                    data.forEach(beer => {
+                        // 맥주 정보를 담을 div를 생성합니다
+                        var beerDiv = document.createElement('div');
 
-         <div class="heart">
-        <img id="img1" src="img/ic_heart.png" style="width:30px; height: 30px;">
-        <img id="img2" src="img/ic_fill_heart.png" style="width: 30px; height: 30px;  ">
-         </div>
-     </div>
-     </div>
+                        // thumb div를 생성합니다
+                        // var thumbDiv = document.createElement('div');
+                        // thumbDiv.className = "thumb";
+                        // var thumbLink = document.createElement('a');
+                        // var thumbImg = document.createElement('img');
+                        // thumbImg.src = "http://" + beer.image_path; // 맥주 이미지 경로를 설정합니다
+                        // thumbImg.style = "width: 150px; height: 210px; margin-top: 0 auto;";
+                        
+                        // thumbLink.appendChild(thumbImg);
+                        // thumbDiv.appendChild(thumbLink);
+                        // thumb div를 생성합니다
+                        var thumbDiv = document.createElement('div');
+                        thumbDiv.className = "thumb";
+                        var thumbLink = document.createElement('a');
+                        var thumbImg = document.createElement('img');
+                        thumbImg.src = "img/20heineken2.png"; // 맥주 이미지 경로를 설정합니다
+                        thumbImg.style = "width: 150px; height: 210px; margin-top: 0 auto;";
 
+                        // 클릭 중일 때 이미지 변경
+                        thumbImg.onmousedown = function() {
+                            thumbImg.src = "https://" + beer.image_path;
+                            console.log(thumbImg.src.toString());
+                        };
 
+                        // 클릭이 끝나면 원래 이미지로 변경
+                        thumbImg.onmouseup = function() {
+                            thumbImg.src = "img/20heineken2.png
+                            ";
+                        };
+
+                        thumbLink.appendChild(thumbImg);
+                        thumbDiv.appendChild(thumbLink);
+
+                        // txtArea div를 생성합니다
+                        var txtAreaDiv = document.createElement('div');
+                        txtAreaDiv.className = "txt-area";
+                        var cntHeaderDiv = document.createElement('div');
+                        cntHeaderDiv.className = "cnt-header";
+                        var wineryP = document.createElement('p');
+                        wineryP.className = "winery";
+                        var wineryLink = document.createElement('a');
+                        var tnpstyle= document.createElement('div');
+                        tnpstyle.className = "txt-area";
+                        wineryLink.textContent = beer.name; // 맥주 이름을 설정합니다
+                        wineryP.appendChild(wineryLink);
+                        cntHeaderDiv.appendChild(wineryP);
+
+                        // h3를 생성하고 맥주 이름과 카테고리를 추가합니다
+                        var h3 = document.createElement('h3');
+                        var btnViewLink = document.createElement('a');
+                        btnViewLink.className = "btnView";
+                        btnViewLink.textContent = beer.name + " , " + beer.category;
+                        h3.appendChild(btnViewLink);
+                        cntHeaderDiv.appendChild(h3);
+
+                        // 국가를 표시하는 span을 생성합니다
+                        var countrySpan = document.createElement('span');
+                        countrySpan.className = "country";
+                        countrySpan.textContent = beer.origin; // 맥주의 원산지를 설정합니다
+                        txtAreaDiv.appendChild(countrySpan);
+
+                        // 카테고리를 표시하는 span을 생성합니다
+                        var nationSpan = document.createElement('span');
+                        nationSpan.className = "nation";
+                        nationSpan.textContent = ", " + beer.category;
+                        txtAreaDiv.appendChild(nationSpan);
+
+                        beerDiv.appendChild(thumbDiv);
+                        beerDiv.appendChild(txtAreaDiv);
+
+                        // 페이지 body에 맥주 div를 추가합니다
+                       // document.body.beerlist.appendChild(beerDiv);
+                       document.querySelector(".beer-list").appendChild(beerDiv);
+                    });
+                })
+                .catch(error => console.error('Error:', error)); // 에러를 콘솔에 출력합니다
+        };
+    </script>
+<script>
+var userPreferences = {
+    user_id: "1234",
+    preferred_origin: "Germany",
+    preferred_categories: ["IPA", "Stout"],
+    preferred_sweetness: 3.5,
+    preferred_bitterness: 4.2,
+    preferred_sourness: 2.8,
+    preferred_ABV: 6.8,
+    preferred_food_pairing: ["Burgers", "Pizza"],
+    preferred_taste: ["Hoppy", "Roasty"]
+};
+
+// JSON 문자열로 변환
+var userPreferencesJson = JSON.stringify(userPreferences, null, 4);
+
+// JSON 출력
+console.log(userPreferencesJson);
+</script>
 
          
     <div class="beer-list">
     <div class="thumb">        
-        <a href="">
-            <img src="img/20heineken2.png" style="width: 150px; height: 210px; margin-top: 0 auto;" alt="">
-        </a>    
+        
+            <img src="img/20heineken2.png" id="test" style="width: 150px; height: 210px; margin-top: 0 auto;" alt="">
+        
+        
     </div>    
     <div class="txt-area">        
         <div class="cnt-header">            

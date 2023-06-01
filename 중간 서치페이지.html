@@ -67,14 +67,14 @@
    
     </header>
     <div class="beer-recom box-shadow">
-		<p class="tit pop-open-btn"><span>추천<br>맥주보기</span><i class="ir"></i></p>
+      <p class="tit pop-open-btn"><span>추천<br>맥주보기</span><i class="ir"></i></p>
         <a href="찜목록.html">
-		<ul id="uiFooterWineHistory">
-			<li class="recently-viewed">최근 본 상품</li>
-		</ul>
+      <ul id="uiFooterWineHistory">
+         <li class="recently-viewed">최근 본 상품</li>
+      </ul>
     </a>
-		<p class="top"><i class="ir"></i><span>TOP</span></p>
-	</div>
+      <p class="top"><i class="ir"></i><span>TOP</span></p>
+   </div>
  <script>
  const $topBtn = document.querySelector(".top");
 
@@ -339,7 +339,7 @@
                                 <input type="radio" name="star-input" value="5" id="p5">
                                 <label for="p5">5</label>
                               </span>
-                              <output for="star-input"><b>0</b>점</output>						
+                              <output for="star-input"><b>0</b>점</output>                  
                         </span>
                         <script src="js/jquery-1.11.3.min.js"></script>
                         <script src="js/star.js"></script>
@@ -536,15 +536,186 @@
 
     </fieldset>
     -->
+    <!-- <form id="myForm">
+        <label for="beer_id">아이디:</label>
+        <input type="text" id="beer_id">
+    
+        <label for="origin">원산지:</label>
+        <input type="email" id="origin">
+    
+        <button type="button" onclick="submitForm()">제출</button>
+    </form>
+    <script>
+        function submitForm() {
+    // FormData 객체 생성
+    const formData = new FormData();
+
+    // form 필드와 값을 추가
+    const nameInput = document.getElementById('beer_id');
+    formData.append('beer_id', nameInput.value);
+
+    const emailInput = document.getElementById('origin');
+    formData.append('origin', emailInput.value);
+
+    // FormData 객체를 서버로 전송하거나 추가 작업 수행
+    // 예: fetch 요청
+    fetch('https://port-0-beer-match-lhe2blhxowpm3.sel4.cloudtype.app/beers', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result); // 서버 응답 처리
+    })
+    .catch(error => {
+        console.error('Error:', error); // 오류 처리
+    });
+}
+    </script> -->
+    <!-- <div class="input-data">
+    <form action= "#" accept-charset="UTF-8" name="person_info" method="get">
+        <fieldset style =" width: 700px; height: 450px; margin: 0 auto; text-align: center; margin-top: 30px;">
+            <legend>사용자 선호도 입력</legend><br><br>
+             아이디 : <input type="text" name ="beer_id"/><br>
+             선호하는 원산지 : <input type="text" name ="origin"/><br>
+             선호하는 맥주 대분류 : <input type="text" name ="category"/><br>
+             선호하는 당도 : <input type="text" name ="sweetness"/><br>
+             선호하는 쓴맛 : <input type="text" name ="bitterness"/><br>
+             선호하는 산미 : <input type="text" name ="sourness"/><br>
+             선호하는 도수 : <input type="text" name ="ABV"/><br>
+             선호하는 음식 매칭 : <input type="text" name ="food_pairing"/><br>
+             선호하는 맛과 향 : <input type="text" name ="taste"/><br><br><br>
+
+             <input type="submit" value="submit"/>
+             <input type="reset" value="reset"/>
+        
+        </fieldset>
+
+
+    </form>
+    
+</div>
+<script>
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // 폼 제출 이벤트의 기본 동작을 취소하여 페이지 새로고침을 방지합니다.
+        
+        // 입력된 데이터 가져오기
+        var beerId = document.querySelector('input[name="beer_id"]').value;
+        var origin = document.querySelector('input[name="origin"]').value;
+        var category = document.querySelector('input[name="category"]').value;
+        var sweetness = document.querySelector('input[name="sweetness"]').value;
+        var bitterness = document.querySelector('input[name="bitterness"]').value;
+        var sourness = document.querySelector('input[name="sourness"]').value;
+        var ABV = document.querySelector('input[name="ABV"]').value;
+        var foodPairing = document.querySelector('input[name="food_pairing"]').value;
+        var taste = document.querySelector('input[name="taste"]').value;
+
+        // 데이터 콘솔에 출력하기
+        console.log('아이디:', beerId);
+        console.log('선호하는 원산지:', origin);
+        console.log('선호하는 맥주 대분류:', category);
+        console.log('선호하는 당도:', sweetness);
+        console.log('선호하는 쓴맛:', bitterness);
+        console.log('선호하는 산미:', sourness);
+        console.log('선호하는 도수:', ABV);
+        console.log('선호하는 음식 매칭:', foodPairing);
+        console.log('선호하는 맛과 향:', taste);
+    });
+</script> -->
+
+<!-- <div class="input-data">
+    
+    <div>아이디: <span id="beerId"></span></div>
+    <div>선호하는 원산지: <span id="origin"></span></div>
+    <div>선호하는 맥주 대분류: <span id="category"></span></div>
+    <div>선호하는 당도: <span id="sweetness"></span></div>
+    <div>선호하는 쓴맛: <span id="bitterness"></span></div>
+    <div>선호하는 산미: <span id="sourness"></span></div>
+    <div>선호하는 도수: <span id="ABV"></span></div>
+    <div>선호하는 음식 매칭: <span id="food_pairing"></span></div>
+    <div>선호하는 맛과 향: <span id="taste"></span></div>
+  </div>
+  
+  <script>
+    var data = {
+  person_info: {
+    beer_id: "1234",
+    origin: "한국",
+    category: "라거",
+    sweetness: "2",
+    bitterness: "1.5",
+    sourness: "1",
+    ABV: "4",
+    food_pairing: "후라이드 치킨",
+    taste: "가벼운"
+  }
+};
+
+var newData = {
+  person_info: {
+    beer_id: "5678",
+    origin: "미국",
+    category: "에일",
+    sweetness: "2",
+    bitterness: "7",
+    sourness: "3",
+    ABV: "6.5",
+    food_pairing: "스테이크",
+    taste: "고소한"
+  }
+};
+var mergedData = Object.assign({}, data, newData);
+window.onload = function() {
+    // 예시: 데이터를 사용하여 API 호출 수행
+    fetch('https://port-0-beer-match-lhe2blhxowpm3.sel4.cloudtype.app/beers', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(result => {
+        // API 호출 결과를 처리하는 코드
+        console.log(result);
+      })
+      .catch(error => {
+        // 오류 처리 코드
+        console.error('Error:', error);
+      });
+    };
+    // 예시: 데이터를 화면에 표시
+    document.getElementById('beerId').textContent = data.person_info.beer_id;
+    document.getElementById('origin').textContent = data.person_info.origin;
+    document.getElementById('category').textContent = data.person_info.category;
+    document.getElementById('sweetness').textContent = data.person_info.sweetness;
+    document.getElementById('bitterness').textContent = data.person_info.bitterness;
+    document.getElementById('sourness').textContent = data.person_info.sourness;
+    document.getElementById('ABV').textContent = data.person_info.ABV;
+    document.getElementById('food_pairing').textContent = data.person_info.food_pairing;
+    document.getElementById('taste').textContent = data.person_info.taste;
+
+   
+    console.log('아이디:', beerId);
+        console.log('선호하는 원산지:', origin);
+        console.log('선호하는 맥주 대분류:', category);
+        console.log('선호하는 당도:', sweetness);
+        console.log('선호하는 쓴맛:', bitterness);
+        console.log('선호하는 산미:', sourness);
+        console.log('선호하는 도수:', ABV);
+        console.log('선호하는 음식 매칭:', data.person_info.food_pairing);
+        console.log('선호하는 맛과 향:', taste);
+  </script> -->
+
     <div class="view-rel">   
         <div class="search-man" style="width: 950px; margin: 0 auto;">
         <div class="search-end" style="text-align: left; font-size: 25px; ">검색결과</div>
         <div class="" style="height: 10px; border-bottom: 2px solid yellow;  border-top: 2px solid yellow;"></div>
     </div>
         
-    <div class="beer-list">
+    <div class="beerlist">
+   
         
-
     </div>
      <script>
         // 페이지 로드가 완료되면 함수를 실행합니다
@@ -558,17 +729,9 @@
                     data.forEach(beer => {
                         // 맥주 정보를 담을 div를 생성합니다
                         var beerDiv = document.createElement('div');
+                        beerDiv.className = "beer-list";
 
-                        // thumb div를 생성합니다
-                        // var thumbDiv = document.createElement('div');
-                        // thumbDiv.className = "thumb";
-                        // var thumbLink = document.createElement('a');
-                        // var thumbImg = document.createElement('img');
-                        // thumbImg.src = "http://" + beer.image_path; // 맥주 이미지 경로를 설정합니다
-                        // thumbImg.style = "width: 150px; height: 210px; margin-top: 0 auto;";
-                        
-                        // thumbLink.appendChild(thumbImg);
-                        // thumbDiv.appendChild(thumbLink);
+
                         // thumb div를 생성합니다
                         var thumbDiv = document.createElement('div');
                         thumbDiv.className = "thumb";
@@ -585,8 +748,7 @@
 
                         // 클릭이 끝나면 원래 이미지로 변경
                         thumbImg.onmouseup = function() {
-                            thumbImg.src = "img/20heineken2.png
-                            ";
+                            thumbImg.src = "img/20heineken2.png";
                         };
 
                         thumbLink.appendChild(thumbImg);
@@ -600,19 +762,25 @@
                         var wineryP = document.createElement('p');
                         wineryP.className = "winery";
                         var wineryLink = document.createElement('a');
-                        var tnpstyle= document.createElement('div');
-                        tnpstyle.className = "txt-area";
+                        wineryLink.style = "font-size:20px;";
+
+                        
+                       
                         wineryLink.textContent = beer.name; // 맥주 이름을 설정합니다
                         wineryP.appendChild(wineryLink);
                         cntHeaderDiv.appendChild(wineryP);
+                        
+
+                        
 
                         // h3를 생성하고 맥주 이름과 카테고리를 추가합니다
                         var h3 = document.createElement('h3');
                         var btnViewLink = document.createElement('a');
                         btnViewLink.className = "btnView";
-                        btnViewLink.textContent = beer.name + " , " + beer.category;
+                        btnViewLink.textContent = beer.ABV + "%(도수), " + beer.category;
                         h3.appendChild(btnViewLink);
                         cntHeaderDiv.appendChild(h3);
+                        txtAreaDiv.appendChild(cntHeaderDiv);
 
                         // 국가를 표시하는 span을 생성합니다
                         var countrySpan = document.createElement('span');
@@ -623,21 +791,72 @@
                         // 카테고리를 표시하는 span을 생성합니다
                         var nationSpan = document.createElement('span');
                         nationSpan.className = "nation";
-                        nationSpan.textContent = ", " + beer.category;
+                        nationSpan.textContent = ", " + beer.taste;
                         txtAreaDiv.appendChild(nationSpan);
 
+                        //별점 이미지 넣는 div를 생성하고 회색이미지에서...
+                        var rate = document.createElement('div');
+                        rate.className = "rate";
+                        rate.style.background = "img/star_bg02.png no-repeat";
+                        rate.style.width = "121px";
+                        rate.style.height = "20px";
+                        rate.style.position = "relative";
+
+
+                        //별점 이미지를 beer.rating 수치에 맞게 빨간색으로 이미지가 채워지게끔 구현했다.
+                        var hh = document.createElement('em');
+                        hh.style.position = "absolute";
+                        hh.style.background = "img/star02.png";
+                        hh.style.width = beer.rating*20.7 + "%";
+                        hh.style.height = "20px";
+
+                        // 각 맥주에 대한 평점을 가져오는 부분 서버에 요청을 보내서 데이터를 가져온다.
+                        var ratetext = document.createElement('div');
+                        ratetext.className = "rate-text";
+                        ratetext.style.textAlign = "right";
+                        ratetext.style.whiteSpace = "normal";
+                        ratetext.style.marginLeft = "130px";
+                        ratetext.textContent = "("+beer.rating+")"; // 평점부분
+
+                        // (아직 미완성) 하트클릭시 빨간하트로 이미지 변경
+                        var heart = document.createElement('div');
+                        heart.className = "heart";
+                        var heartImg =document.createElement('img');
+                        heartImg.src="img/ic_heart.png";
+                        heartImg.style="width:30px; height: 30px; margin-left:469px;";
+                        
+                        heartImg.addEventListener('click', function() {
+                        // 새로운 이미지 경로로 변경합니다
+                        if (heartImg.src.includes('img/ic_heart.png')) {
+                        heartImg.src = 'img/ic_fill_heart.png';
+                        } else {
+                        heartImg.src = 'img/ic_heart.png';
+                        }
+                        });
+
+
+                        
+
+                        rate.appendChild(hh);
+                        rate.appendChild(ratetext);
+                        rate.appendChild(heart);
+                        heart.appendChild(heartImg);
+                        txtAreaDiv.appendChild(rate);
+                        
+
+                        
                         beerDiv.appendChild(thumbDiv);
                         beerDiv.appendChild(txtAreaDiv);
 
                         // 페이지 body에 맥주 div를 추가합니다
                        // document.body.beerlist.appendChild(beerDiv);
-                       document.querySelector(".beer-list").appendChild(beerDiv);
+                       document.querySelector(".beerlist").appendChild(beerDiv);
                     });
                 })
                 .catch(error => console.error('Error:', error)); // 에러를 콘솔에 출력합니다
         };
     </script>
-<script>
+    <script>
 var userPreferences = {
     user_id: "1234",
     preferred_origin: "Germany",
@@ -655,106 +874,8 @@ var userPreferencesJson = JSON.stringify(userPreferences, null, 4);
 
 // JSON 출력
 console.log(userPreferencesJson);
-</script>
-
-         
-    <div class="beer-list">
-    <div class="thumb">        
-        
-            <img src="img/20heineken2.png" id="test" style="width: 150px; height: 210px; margin-top: 0 auto;" alt="">
-        
-        
-    </div>    
-    <div class="txt-area">        
-        <div class="cnt-header">            
-            <p class="winery"><a href="">하이네켄&nbsp;Heineken</a></p>            
-            <h3>                
-                <a href="" class="btnView">하이네켄 , 오리지날                 
-                <p class="wine-name-en">Heineken, Original</p>                
-            </a>            
-        </h3>        
-        </div>        
-            
-        <span class="country">네덜란드(Nederlanden)</span>            
-        <span class="nation">, 라거(Lager)</span>       
-           
-
-         <div class="rate">
-            <em style="width: 80%;" ></em>    <div class="rate-text">(4.0)</div>  
-        </div> 
-
-        <div class="heart">
-        <img id="img3" src="img/ic_heart.png" style="width:30px; height: 30px;">
-        <img id="img4" src="img/ic_fill_heart.png" style="width: 30px; height: 30px;  ">
-        </div>
-</div>
-</div>
-
-
-         
-    <div class="beer-list">
-    <div class="thumb">        
-        <a href="">
-            <img src="img/20heineken2.png" style="width: 150px; height: 210px; margin-top: 0 auto;" alt="">
-        </a>    
-    </div>    
-    <div class="txt-area">        
-        <div class="cnt-header">            
-            <p class="winery"><a href="">하이네켄&nbsp;Heineken</a></p>            
-            <h3>                
-                <a href="" class="btnView">하이네켄 , 오리지날                 
-                <p class="wine-name-en">Heineken, Original</p>                
-            </a>            
-        </h3>        
-        </div>                    
-        <span class="country">네덜란드(Nederlanden)</span>            
-        <span class="nation">, 라거(Lager)</span>       
-           
-
-         <div class="rate">
-            <em style="width: 80%;" ></em>    <div class="rate-text">(4.0)</div>  
-        </div> 
-     
-        <div class="heart">
-            <img id="img5" src="img/ic_heart.png" style="width:30px; height: 30px;">
-            <img id="img6" src="img/ic_fill_heart.png" style="width: 30px; height: 30px;  ">
-             </div>
-</div>
-</div>
-
-
-         
-    <div class="beer-list">
-    <div class="thumb">        
-        <a href="">
-            <img src="img/20heineken2.png" style="width: 150px; height: 210px; margin-top: 0 auto;" alt="">
-        </a>    
-    </div>    
-    <div class="txt-area">        
-        <div class="cnt-header">            
-            <p class="winery"><a href="">하이네켄&nbsp;Heineken</a></p>            
-            <h3>                
-                <a href="" class="btnView">하이네켄 , 오리지날                 
-                <p class="wine-name-en">Heineken, Original</p>                
-            </a>            
-        </h3>        
-        </div>        
-      
-        <span class="country">네덜란드(Nederlanden)</span>            
-        <span class="nation">, 라거(Lager)</span>       
-           
-
-         <div class="rate">
-            <em style="width: 80%;" ></em>    <div class="rate-text">(4.0)</div>  
-        </div> 
-        <div class="heart">
-            <img id="img7" src="img/ic_heart.png" style="width:30px; height: 30px;">
-            <img id="img8" src="img/ic_fill_heart.png" style="width: 30px; height: 30px;  ">
-             </div>
-      
-        
-</div>
-</div>
+</script>      
+   
 <div class="beer-list">
     <div class="thumb">        
         <a href="">
